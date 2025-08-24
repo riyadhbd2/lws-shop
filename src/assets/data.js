@@ -1,0 +1,111 @@
+import one from "../assets/image1.png";
+import two from "../assets/image2.png";
+import three from "../assets/image3.png";
+import four from "../assets/image4.png";
+import five from "../assets/image5.png";
+import six from "../assets/image6.png";
+import seven from "../assets/image7.png";
+import eight from "../assets/image8.png";
+import nine from "../assets/image9.png";
+
+export const products = [
+  {
+    id: 1,
+    title: "Gradient Graphic T-shirt",
+    rating: 4,
+    stock: 10,
+    img: one,
+    price: 145,
+    date: Date.now(),
+    color: "Green",
+    size: "Large",
+  },
+  {
+    id: 2,
+    title: "Polo with Tipping Details",
+    rating: 1,
+    stock: 6,
+    img: two,
+    price: 180,
+    date: Date.now(),
+    color: "Orange",
+    size: "Medium",
+  },
+  {
+    id: 3,
+    title: "Black Striped T-shirt",
+    rating: 3,
+    stock: 4,
+    img: three,
+    price: 120,
+    date: Date.now(),
+    color: "Black",
+    size: "Small",
+  },
+  {
+    id: 4,
+    title: "Skinny Fit Jeans",
+    rating: 4,
+    stock: 7,
+    img: four,
+    price: 245,
+    date: Date.now(),
+    color: "Blue",
+    size: "Large",
+  },
+  {
+    id: 5,
+    title: "Checkered Shirt",
+    rating: 4,
+    stock: 4,
+    img: five,
+    price: 180,
+    date: Date.now(),
+    color: "Orange",
+    size: "Medium",
+  },
+  {
+    id: 6,
+    title: "Sleeve Striped T-shirt",
+    rating: 3,
+    stock: 5,
+    img: six,
+    price: 130,
+    date: Date.now(),
+    color: "White",
+    size: "Large",
+  },
+  {
+    id: 7,
+    title: "Vertical Striped Shirt",
+    rating: 4,
+    stock: 9,
+    img: seven,
+    price: 105,
+    date: Date.now(),
+    color: "Red",
+    size: "Small",
+  },
+  {
+    id: 8,
+    title: "Courage Graphic T-shirt",
+    rating: 2,
+    stock: 4,
+    img: eight,
+    price: 120,
+    date: Date.now(),
+    color: "Blue",
+    size: "Large",
+  },
+  {
+    id: 9,
+    title: "Loose Fit Bermuda Shorts",
+    rating: 4,
+    stock: 10,
+    img: nine,
+    price: 145,
+    date: Date.now(),
+    color: "Pink",
+    size: "Large",
+  },
+];

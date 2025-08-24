@@ -1,8 +1,19 @@
 import React from 'react'
+import Announcebar from './components/Announcebar'
+import Header from './components/Header'
+import NewsLetter from './components/NewsLetter'
+import Footer from './components/Footer'
+import MainContent from './components/main-content/MainContent'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <Announcebar/>
+      <Header/>
+      <MainContent/>
+      <NewsLetter/>
+      <Footer/>
+    </div>
   )
 }
 
