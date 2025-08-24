@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({ searchTerm, onSearch }) => {
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    onSearch(value);
+  };
+
   return (
     <header className="border-b border-gray-200 py-4 px-4 md:px-8">
     <div className="container mx-auto flex items-center justify-between">
@@ -13,17 +18,23 @@ const Header = () => {
         <a href="#" className="hover:text-gray-500 transition-colors">Brands</a>
       </nav>
 
+      {/* search input */}
       <div className="flex items-center space-x-4">
         <div className="relative hidden md:block w-64">
-          <input type="text" placeholder="Search for products..."
-            className="w-full bg-gray-100 rounded-full py-2 px-4 text-sm"/>
-          <span className="absolute right-3 top-2">
+          <input 
+            type="text" 
+            placeholder="Search for products..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="w-full bg-gray-100 rounded-full py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-white transition-all"
+          />
+          <div className="absolute right-3 top-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-          </span>
+          </div>
         </div>
 
         <a href="#" className="hover:text-gray-500 transition-colors">

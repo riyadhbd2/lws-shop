@@ -3,8 +3,15 @@ import { CartContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
 import PromoCode from "./PromoCode";
 
-const CartSection = ({onRemove}) => {
-  const { cartData } = useContext(CartContext);
+const CartSection = ({ onRemove, onQtyChange }) => {
+  const { cartData, totalPrice } = useContext(CartContext);
+  
+  // Calculate order summary values
+  const subtotal = totalPrice;
+  const discount = subtotal * 0.2; // 20% discount
+  const deliveryFee = 15;
+  const total = subtotal - discount + deliveryFee;
+  
   return (
     <div className="lg:col-span-1">
       <div className="bg-white rounded-lg p-6 border border-gray-200">
@@ -13,7 +20,12 @@ const CartSection = ({onRemove}) => {
         {/* <!-- All Cart Item Map Here --> */}
 
         {cartData.map((product) => (
-          <CartItem key={product.id} product={product} onRemove={onRemove}/>
+          <CartItem 
+            key={product.id} 
+            product={product} 
+            onRemove={onRemove} 
+            onQtyChange={onQtyChange}
+          />
         ))}
 
         {/* <!-- Order Summary --> */}
@@ -23,19 +35,19 @@ const CartSection = ({onRemove}) => {
           <div className="space-y-2 mb-4">
             <div className="flex justify-between">
               <span className="text-gray-600">Subtotal</span>
-              <span className="font-medium">$565</span>
+              <span className="font-medium">${subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-red-500">
               <span>Discount (-20%)</span>
-              <span>-$113</span>
+              <span>-${discount.toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Delivery Fee</span>
-              <span className="font-medium">$15</span>
+              <span className="font-medium">${deliveryFee.toFixed(2)}</span>
             </div>
             <div className="flex justify-between font-bold text-lg pt-2 border-t border-gray-200">
               <span>Total</span>
-              <span>$467</span>
+              <span>${total.toFixed(2)}</span>
             </div>
           </div>
 

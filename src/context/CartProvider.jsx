@@ -23,7 +23,7 @@ export const CartProvider = ({ children }) => {
   const removeItem = (id) =>
     setCartData((prev) => prev.filter((i) => i.id !== id));
 
-  //   Quantity function
+  // Quantity function
   const setQty = (id, qty) =>
     setCartData((prev) =>
       prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, qty) } : i))
