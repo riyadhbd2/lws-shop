@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CartContext } from "./CartContext";
 
 export const CartProvider = ({ children }) => {
-  const [cartData, setCartData] = useState([]); // products in carts
+  // Initialize cart data from localStorage or empty array
+  const [cartData, setCartData] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  // Save cart data to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartData));
+  }, [cartData]);
+
   console.log(cartData);
   
 
@@ -23,7 +33,7 @@ export const CartProvider = ({ children }) => {
   const removeItem = (id) =>
     setCartData((prev) => prev.filter((i) => i.id !== id));
 
-  // Quantity function
+  //   Quantity function
   const setQty = (id, qty) =>
     setCartData((prev) =>
       prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, qty) } : i))
@@ -53,4 +63,3 @@ export const CartProvider = ({ children }) => {
         {children}
     </CartContext.Provider>);
 };
-
